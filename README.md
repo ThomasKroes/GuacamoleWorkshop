@@ -16,4 +16,5 @@ Below are links to PDF's that will guide you through the workshop:
 <br/>
 <br/>
 <br/>
+
 ![GuacamoleLogo](https://techtastico.com/files/2010/07/Guacamole.jpg "Guacamole logo")
