@@ -9,5 +9,5 @@ This workshop consists of an [intermediate](https://github.com/ThomasKroes/Guaca
 
 Below are links to PDF's that will guide you through the workshop:
 
-[Intermediate](https://github.com/ThomasKroes/GuacamoleWorkshop/intermediate.pdf)
-[Advanced](https://github.com/ThomasKroes/GuacamoleWorkshop/advanced.pdf)
+[Intermediate guide](https://github.com/ThomasKroes/GuacamoleWorkshop/intermediate.pdf)  
+[Advanced guide](https://github.com/ThomasKroes/GuacamoleWorkshop/advanced.pdf)
