@@ -21,7 +21,7 @@ services:
     networks:
       - default
 
-  # This is the actual Guacamole webserver
+  # This is the actual Guacamole web server
   guac:
     image: glyptodon/guacamole:0.9.9
     container_name: intermediate.guac
