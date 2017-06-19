@@ -9,9 +9,9 @@ This workshop consists of an [intermediate](/intermediate) tutorial in which we 
 
 ## Guides
 Below are links to PDF's that will guide you through the workshop:  
-[Prerequisites](/db.md)  
-[Intermediate guide](/intermediate/intermediate.md)    
-[Advanced guide](/advanced/advanced.md)
+[Prerequisites](/prerequisites/tutorial.md)  
+[Intermediate guide](/intermediate/tutorial.md)    
+[Advanced guide](/advanced/tutorial.md)
 
 <br/>
 <br/>
