@@ -11,3 +11,5 @@ Below are links to PDF's that will guide you through the workshop:
 
 [Intermediate guide](https://github.com/ThomasKroes/GuacamoleWorkshop/intermediate.pdf)  
 [Advanced guide](https://github.com/ThomasKroes/GuacamoleWorkshop/advanced.pdf)
+
+![GuacamoleLogo](https://techtastico.com/files/2010/07/Guacamole.jpg "Guacamole logo")
