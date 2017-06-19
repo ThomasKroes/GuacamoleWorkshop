@@ -1,12 +1,14 @@
 version: '2'
 
 services:
+  # Guacamole daemon that connects to the desktops
   guacd:
     image: glyptodon/guacd:0.9.9
     container_name: intermediate.guacd
     networks:
       - default
 
+  # Backend database used by Guacamole
   mysql:
     image: guacdb
     container_name: intermediate.guacdb
@@ -19,6 +21,7 @@ services:
     networks:
       - default
 
+  # This is the actual Guacamole webserver
   guac:
     image: glyptodon/guacamole:0.9.9
     container_name: intermediate.guac
@@ -35,6 +38,7 @@ services:
     networks:
       - default
 
+  # Nginx proxy
   proxy:
     build: images/proxy
     container_name: intermediate.proxy
@@ -49,6 +53,7 @@ services:
     networks:
       - default
 
+  # Blender desktop image
   blender:
     image: bbmri.registry.ewi.tudelft.nl/sandbox/blender
     container_name: intermediate.blender
