@@ -1,5 +1,9 @@
-# Prerequisites guide
+# Prerequisites
+Before we can begin with the actual tutorials, please make sure that you:
+* Have a recent version of [Docker](https://www.docker.com/) installed
+* A Python distribution such as [Anaconda](https://www.continuum.io/downloads)
+* Created a [Guacamole MySQL docker image](## Guacamole MySQL Docker image) (used throughout the tutorials)
 
-## Setting up the guacamole Database
-This repository contains the course material for the Guacamole Workshop (DTL Programmers Meeting, 23rd of June 2017).
+## Guacamole MySQL Docker image
+
 
