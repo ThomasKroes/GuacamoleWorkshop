@@ -9,7 +9,7 @@ This workshop consists of an [intermediate](/intermediate) tutorial in which we 
 
 ## Guides
 Below are links to PDF's that will guide you through the workshop:  
-[Setting up the Guacamole database](/db.md)  
+[Prerequisites](/db.md)  
 [Intermediate guide](/intermediate/intermediate.md)    
 [Advanced guide](/advanced/advanced.md)
 
