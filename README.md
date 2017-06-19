@@ -5,12 +5,12 @@ This repository contains the course material for the Guacamole Workshop (DTL Pro
 The goal is to get hands-on experience in setting up Guacamole and using its REST api to manage connections.
 
 ## Contents
-This workshop consists of an [intermediate](https://github.com/ThomasKroes/GuacamoleWorkshop/intermediate) tutorial in which we use Guacamole to make Blender available in the browser. In the [advanced](https://github.com/ThomasKroes/GuacamoleWorkshop/Advanced) tutorial, we work with the Guacamole REST api to build a small webservice for Blender. Each tutorial has a /completed directory that contains the files for the completed tutorial ([intermediate/completed](https://github.com/ThomasKroes/GuacamoleWorkshop/intermediate/completed) & [advanced/completed](https://github.com/ThomasKroes/GuacamoleWorkshop/advanced/completed)). 
+This workshop consists of an [intermediate](/intermediate) tutorial in which we use Guacamole to make Blender available in the browser. In the [advanced](/advanced) tutorial, we work with the Guacamole REST api to build a small webservice for Blender. Each tutorial has a /completed directory that contains the files for the completed tutorial ([intermediate/completed](/intermediate/completed/) & [advanced/completed](/advanced/completed/)). 
 
 Below are links to PDF's that will guide you through the workshop:
 
-[Intermediate guide](https://github.com/ThomasKroes/GuacamoleWorkshop/intermediate.pdf)  
-[Advanced guide](https://github.com/ThomasKroes/GuacamoleWorkshop/advanced.pdf)
+[Intermediate guide](/intermediate/guide.pdf)  
+[Advanced guide](/advanced/guide.pdf)
 
 Good luck with the tutorials!
 <br/>
