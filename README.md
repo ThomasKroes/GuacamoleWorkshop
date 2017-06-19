@@ -9,9 +9,9 @@ This workshop consists of an [intermediate](/intermediate) tutorial in which we 
 
 ## Guides
 Below are links to PDF's that will guide you through the workshop:
-
-[Intermediate guide](/intermediate/guide.pdf)  
-[Advanced guide](/advanced/guide.pdf)
+[Setting up the Guacamole database](/db.md)
+[Intermediate guide](/intermediate/intermediate.md)  
+[Advanced guide](/advanced/advanced.md)
 
 <br/>
 <br/>
