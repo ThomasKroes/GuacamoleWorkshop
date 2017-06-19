@@ -12,7 +12,6 @@ Throughout this tutorial, the Guacamole server uses a MySQL Docker Image to stor
 This directory contains two files:  
 [Dockerfile](guacdb/Dockerfile) for building the Docker image  
 [initdb.sql](guacdb/initdb.sql) for injecting the SQL schema when the image is created
-
 2. Execute `docker build . -t guacdb`  
 This builds the Guacamole database image and stores it in the local Docker registry.
 
