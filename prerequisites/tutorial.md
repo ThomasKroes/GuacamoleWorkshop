@@ -15,6 +15,6 @@ This directory contains two files:
 [Dockerfile](guacdb/Dockerfile) for building the Docker image  
 [initdb.sql](guacdb/initdb.sql) for injecting the SQL schema when the image is created
 2. Execute `docker build . -t guacdb`  
-This builds the Guacamole database image and stores it in the local Docker registry. In the next exercises you will see references to this image.
+This builds the Guacamole database image and stores it in the local Docker registry. In the next exercises you will see references to this image in docker-compose.yml files.
 
 Now that the database image has been built, you can continue with the [intermediate](intermediate/exercise.md) or [advanced](advanced/exercise.md) exercises.
