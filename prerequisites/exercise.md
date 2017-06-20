@@ -18,7 +18,8 @@ This directory contains two files:
 [Dockerfile](guacdb/Dockerfile) for building the Docker image  
 [initdb.sql](guacdb/initdb.sql) for injecting the SQL schema when the image is created
 2. Execute `docker build . -t guacdb`  
-This builds the Guacamole database Docker image and stores it in the local Docker registry.
+This builds the Guacamole database Docker image and stores it in the local Docker registry.  
+
 *In the next exercises you will see references to this image in docker-compose.yml files.*
 
 ## Blender desktop Docker image
@@ -30,5 +31,6 @@ This directory contains two files:
 [Dockerfile](guacdb/Dockerfile) for building the Docker image  
 [initdb.sql](guacdb/initdb.sql) for injecting the SQL schema when the image is created
 2. Execute `docker build . -t guacdb`  
-This builds the Blender Docker image and stores it in the local Docker registry.
+This builds the Blender Docker image and stores it in the local Docker registry.  
+
 *In the next exercises you will see references to this image in docker-compose.yml files.*
