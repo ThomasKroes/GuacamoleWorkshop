@@ -2,7 +2,10 @@
 Before we can begin with the actual exercises, please make sure that you:
 * Have a recent version of [Docker](https://www.docker.com/) installed
 * Have a Python distribution such as [Anaconda](https://www.continuum.io/downloads) installed on your system
-* Created a [Guacamole MySQL Docker image](#Guacamole-MySQL-Docker-image) (used throughout the exercises)
+* Created a [Guacamole MySQL Docker image](#Guacamole-MySQL-Docker-image)
+* Created a [Blender](#Blender-desktop-image) desktop image
+
+If done so, you can continue with the [intermediate](intermediate/exercise.md) or [advanced](advanced/exercise.md) exercises.
 
 ## Guacamole MySQL Docker image
 Throughout this workshop, we make use of a custom [MySQL Docker Image](https://hub.docker.com/_/mysql/) that provides the proper schema such that Guacamole can store information. 
@@ -17,4 +20,5 @@ This directory contains two files:
 2. Execute `docker build . -t guacdb`  
 This builds the Guacamole database image and stores it in the local Docker registry. In the next exercises you will see references to this image in docker-compose.yml files.
 
-Now that the database image has been built, you can continue with the [intermediate](intermediate/exercise.md) or [advanced](advanced/exercise.md) exercises.
+## Blender desktop Docker image
+In this workshop, we make Blender available in the browser. 
