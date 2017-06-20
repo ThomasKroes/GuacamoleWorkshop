@@ -2,7 +2,7 @@
 Before we can begin with the actual exercises, please make sure that you:
 * Have a recent version of [Docker](https://www.docker.com/) installed
 * Have a Python distribution such as [Anaconda](https://www.continuum.io/downloads) installed on your system
-* Created a [Guacamole MySQL Docker image](#Guacamole-MySQL-Docker-image) (used throughout the tutorials)
+* Created a [Guacamole MySQL Docker image](#Guacamole-MySQL-Docker-image) (used throughout the exercises)
 
 ## Guacamole MySQL Docker image
 Throughout this workshop, we use a MySQL Docker Image to store information for Guacamole. The standard MySQL Docker Image does not have all the schemas in place which are required by Guacamole (server). To this end, we create a derive from the MySQL Docker Image and provide the schema, thus creating a new `guacdb` (Guacamole Database) image.  
