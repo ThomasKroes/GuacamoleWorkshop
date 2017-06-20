@@ -55,5 +55,9 @@ services:
 
   # Blender desktop image
   blender:
-    image: bbmri.registry.ewi.tudelft.nl/sandbox/blender
+    image: blender
     container_name: intermediate.blender
+    environment:
+      BLENDER_FILE: shopping_cart.blend
+    networks:
+      - default
