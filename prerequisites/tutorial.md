@@ -9,10 +9,10 @@ Throughout this workshop, we make use of a custom [MySQL Docker Image](https://h
 
 Follow the steps below to create the image:
 1. Open a terminal and navigate to {clone_dir}/prerequisites/guacdb/.  
-This directory contains two files:  
+*This directory contains two files:  
 [Dockerfile](guacdb/Dockerfile) for building the Docker image  
-[initdb.sql](guacdb/initdb.sql) for injecting the SQL schema when the image is created
+[initdb.sql](guacdb/initdb.sql) for injecting the SQL schema when the image is created*
 2. Execute `docker build . -t guacdb`  
-This builds the Guacamole database image and stores it in the local Docker registry. In the next exercises you will see references to this image.
+*This builds the Guacamole database image and stores it in the local Docker registry. In the next exercises you will see references to this image.*
 
 More information on supported Database backends can be found [here](https://github.com/glyptodon/guacamole-docker).
