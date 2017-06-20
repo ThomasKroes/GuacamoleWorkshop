@@ -2,8 +2,8 @@
 Before we can begin with the actual exercises, please make sure that you:
 * Have a recent version of [Docker](https://www.docker.com/) installed
 * Have a Python distribution such as [Anaconda](https://www.continuum.io/downloads) installed on your system
-* Created a [Guacamole MySQL Docker image](#Guacamole-MySQL-Docker-image)
-* Created a [Blender](#Blender-desktop-image) desktop image
+* Created a [Guacamole MySQL Docker image](#guacamole-mysql-docker-image)
+* Created a [Blender](#blender-desktop-image) desktop image
 
 If done so, you can continue with the [intermediate](intermediate/exercise.md) or [advanced](advanced/exercise.md) exercises.
 
