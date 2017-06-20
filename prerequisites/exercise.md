@@ -5,7 +5,7 @@ Before we can begin with the actual exercises, please make sure that you:
 * Created a [Guacamole MySQL Docker image](#guacamole-mysql-docker-image)
 * Created a [Blender](#blender-desktop-image) desktop image
 
-If done so, you can continue with the [intermediate](intermediate/exercise.md) or [advanced](advanced/exercise.md) exercises.
+If done so, you can continue with the [intermediate](../intermediate/exercise.md) or [advanced](../advanced/exercise.md) exercises.
 
 ## Guacamole MySQL Docker image
 Throughout this workshop, we make use of a custom [MySQL Docker Image](https://hub.docker.com/_/mysql/) that provides the proper schema such that Guacamole can store information. 
