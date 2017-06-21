@@ -39,7 +39,8 @@ The host parameter is set to the service name (blender) in the [Docker Compose](
         networks:
           - default
 11. Click **save** at the bottom of the form
-12. Click the **guacadmin** button at the top right and choose **Blender**:
-![blender](images/blender.png "Blender")
-
+12. Click the **guacadmin** button at the top right and choose **Blender** to connect:
+![launch](images/launch.png "Launch")
+12. If the connection is successfully established you should see the Blender GUI with a mesh models of a shopping cart:
+![blender](images/blender.png "blender")  
 *Press Ctrl + Alt + Shift to go to the settings menu during active connection
