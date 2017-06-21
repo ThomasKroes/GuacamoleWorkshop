@@ -43,4 +43,4 @@ The host parameter is set to the service name (blender) in the [Docker Compose](
 ![launch](images/launch.png "Launch")
 12. If the connection is successfully established you should see the Blender GUI with a mesh models of a shopping cart:
 ![blender](images/blender.png "blender")  
-*Press Ctrl + Alt + Shift to go to the settings menu during active connection
+*You can click Ctrl + Alt + Shift at any time to open the settings menu
