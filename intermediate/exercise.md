@@ -25,7 +25,8 @@ Please make sure you have all the necessary [prerequisites](../prerequisites/exe
 9. The **edit connection** page appears  
 ![connection](images/connection.png "Connection page")
 10. Fill out this form with the settings above  
-The host parameter is set to the service name (blender) in the [Docker Compose](https://docs.docker.com/compose/) file:```yml
+The host parameter is set to the service name (blender) in the [Docker Compose](https://docs.docker.com/compose/) file:
+```yml
   # Blender container
   blender:
     # Blender image from the local Docker registry (created in the prerequisites section)
