@@ -15,9 +15,9 @@ Throughout this workshop, we make use of a custom [MySQL Docker Image](https://h
 
 Follow the steps below to create the Docker image:
 1. Open a terminal and navigate to `{clone_dir}/prerequisites/guacdb/`.  
-This directory contains the following files:
-[Dockerfile](guacdb/Dockerfile) for building the Docker image  
-[initdb.sql](guacdb/initdb.sql) for injecting the SQL schema when the image is created
+This directory contains the following files:  
+[Dockerfile](guacdb/Dockerfile) for building the image  
+[initdb.sql](guacdb/initdb.sql) for injecting the SQL schema at image creation time
 2. Execute `docker build . -t guacdb`  
 This builds the Guacamole database Docker image and stores it in the local Docker registry as `guacdb`.  
 
@@ -28,20 +28,20 @@ In the following exercises, we will run Blender in a Docker container based on a
 
 Follow the steps below to create the Docker image:
 1. Open a terminal and navigate to `{clone_dir}/prerequisites/desktop/`.  
-This directory contains the following files:
-[Dockerfile](desktop/Dockerfile) for building the Docker image.  
+This directory contains the following files:  
+[Dockerfile](desktop/Dockerfile) for building the image.  
 [startup.sh](desktop/startup.sh) is the main entry point for the Docker container  
 [supervisord.conf](desktop/supervisord.conf) configures the process manager (e.g. XVFB, X11VNC & SSH)
 2. Execute `docker build . -t desktop`  
-This builds the desktop Docker image and stores it in the local Docker registry.
+This builds the desktop Docker image and stores it in the local Docker registry as `desktop`.
 
 ## Blender desktop Docker image
 In this workshop, we make Blender available in the browser. In order to do so, we create a Blender Docker image which is based on a generic Docker desktop image.
 
 Follow the steps below to create the Docker image:
 1. Open a terminal and navigate to `{clone_dir}/prerequisites/guacdb/`.  
-This directory contains the following files:
-[Dockerfile](guacdb/Dockerfile) for building the Docker image  
+This directory contains the following files:  
+[Dockerfile](guacdb/Dockerfile) for building the image  
 [initdb.sql](guacdb/initdb.sql) for injecting the SQL schema when the image is created
 2. Execute `docker build . -t guacdb`  
 This builds the Blender Docker image and stores it in the local Docker registry.  
