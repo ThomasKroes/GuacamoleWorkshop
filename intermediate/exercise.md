@@ -38,7 +38,8 @@ The host parameter is set to the service name (blender) in the [Docker Compose](
           BLENDER_FILE: shopping_cart.blend
         networks:
           - default
-
+11. Click **save** at the bottom of the form
+11. Click the **guacadmin** button at the top right and choose **settings**
 
 
 *Press Ctrl + Alt + Shift to go to the settings menu during active connection
