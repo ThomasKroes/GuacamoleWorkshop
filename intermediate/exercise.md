@@ -14,10 +14,10 @@ Please make sure you have all the necessary [prerequisites](../prerequisites/exe
 2. You will be presented with a login page:  
 ![login](images/login.png "Login page")  
 3. Enter the following credentials: *guacadmin/guacadmin*
-4. The home page appears:
+4. The **home** page appears:
 ![home](images/home.png "Home page")
 5. Click the **guacadmin** button at the top right and choose **settings**
-6. The settings page appears:  
+6. The **settings** page appears:  
 ![settings](images/settings.png "Settings page")  
 7. Go to the **connections** tab:  
 ![connections](images/connections.png "Connections tab")
