@@ -36,7 +36,7 @@ This directory contains the following files:
 This builds the desktop Docker image and stores it in the local Docker registry as `desktop`.
 
 ## Blender desktop Docker image
-In this workshop, we make Blender available in the browser. In order to do so, we create a Blender Docker image which is based on a generic Docker desktop image.
+The goal of this workshop is to make Blender available in the browser. In order to do so, we create a Blender Docker image which is based on the previously generated [Desktop Docker image](#desktop-image).
 
 Follow the steps below to create the Docker image:
 1. Open a terminal and navigate to `{clone_dir}/prerequisites/guacdb/`.  
