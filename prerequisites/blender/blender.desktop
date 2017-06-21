@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Exec=/etc/xdg/autostart/blender.sh
+Hidden=false
+NoDisplay=false
+Name[en_US]=Blender
