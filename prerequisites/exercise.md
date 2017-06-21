@@ -24,11 +24,15 @@ This builds the Guacamole database Docker image and stores it in the local Docke
 *In the exercises you will see references to this image in docker-compose.yml files.*
 
 ## Desktop Docker image
-In the following exercises, we will run Blender in a docker container based on a desktop Docker image. This desktop image combines [XFCE](https://xfce.org/) with [XVFB](https://en.wikipedia.org/wiki/Xvfb), so that the desktop containers can be run headless. Furthermore it has [VNC](http://www.karlrunge.com/x11vnc/) for remote control by Guacamole.  
+In the following exercises, we will run Blender in a Docker container based on a desktop Docker image. This desktop image combines [XFCE](https://xfce.org/) with [XVFB](https://en.wikipedia.org/wiki/Xvfb), so that the desktop containers can be run headless. Furthermore it has [VNC](http://www.karlrunge.com/x11vnc/) for remote control by Guacamole.  
 
-Follow the steps below to create the Docker image (*Consult the [Dockerfile](desktop/Dockerfile) for more information.*):
+Follow the steps below to create the Docker image:
 1. Open a terminal and navigate to `{clone_dir}/prerequisites/desktop/`.
-2. Execute `docker build . -t desktop` 
+This directory contains the following files:  
+[Dockerfile](desktop/Dockerfile) for building the Docker image  
+[startup.sh](desktop/startup.sh) is the main entry point for the Docker container
+[supervisord.conf](desktop/supervisord.conf) configures the process manager (e.g. XVFB, X11VNC & SSH)
+2. Execute `docker build . -t desktop`  
 This builds the desktop Docker image and stores it in the local Docker registry.
 
 ## Blender desktop Docker image
@@ -36,7 +40,7 @@ In this workshop, we make Blender available in the browser. In order to do so, w
 
 Follow the steps below to create the Docker image:
 1. Open a terminal and navigate to `{clone_dir}/prerequisites/guacdb/`.  
-This directory contains two files:  
+This directory contains the following files:  
 [Dockerfile](guacdb/Dockerfile) for building the Docker image  
 [initdb.sql](guacdb/initdb.sql) for injecting the SQL schema when the image is created
 2. Execute `docker build . -t guacdb`  
