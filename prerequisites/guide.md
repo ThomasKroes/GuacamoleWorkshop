@@ -28,7 +28,7 @@ In the following exercises, we will run Blender in a Docker container based on a
 Follow the steps below to create the Docker image:
 1. Open a terminal and navigate to `{clone_dir}/prerequisites/gw_desktop/`.  
 This directory contains the following file(s):  
-[Dockerfile](gw_desktop/Dockerfile) for building the image.  
+[Dockerfile](gw_desktop/Dockerfile) for building the image  
 [startup.sh](gw_desktop/startup.sh) is the main entry point for the Docker container (starts the supervisor daemon)  
 [supervisord.conf](gw_desktop/supervisord.conf) configures the process manager and services (e.g. XVFB, X11VNC & SSH)
 2. Execute `docker build . -t gw_desktop`  
@@ -40,7 +40,8 @@ The goal of this workshop is to make Blender available in the browser. To this e
 Follow the steps below to create the Docker image:
 1. Open a terminal and navigate to `{clone_dir}/prerequisites/gw_blender/`.  
 This directory contains the following file(s):  
-[Dockerfile](guacdb/Dockerfile) for building the image  
+[blender.desktop](gw_blender/blender.desktop) runs at startup and executes blender.sh
+[blender.sh](gw_blender/blender.sh) starts Blender with the appropriate scene (from environment variable BLENDER_FILE) [Dockerfile](gw_blender/Dockerfile) for building the image  
 2. Execute `docker build . -t gw_blender`  
 This builds the Blender Docker image and stores it in the local Docker registry as **gw_blender**.  
 
