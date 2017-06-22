@@ -1,4 +1,4 @@
-FROM desktop
+FROM gw_desktop
 
 MAINTAINER Thomas Kroes "t.kroes@lumc.nl"
 

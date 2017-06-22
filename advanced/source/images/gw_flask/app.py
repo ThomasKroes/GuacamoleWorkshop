@@ -16,22 +16,21 @@ guacamole_token = None
 json_header = {"Content-type": "application/json"}
 
 
-# def guacamole_authenticate():
-# 	global guacamole_token
-#
-# 	# No need to update the guacamole token if we have a valid one
-# 	# if guacamole_token is not None:
-# 	# 	return
-#
-# 	# Try to log into the guacamole rest server
-# 	response = requests.post(guacamole_url + "api/tokens", data={ "username" : "guacadmin", "password" : "guacadmin" }, headers={ "Content-type": "application/x-www-form-urlencoded" })
-#
-# 	# Convert response content to python dictionary
-# 	content = json.loads(response.content)
-#
-# 	# Check if we successfully logged into the guacamole rest server
-# 	if "authToken" in content:
-# 		guacamole_token = {'token': json.loads(response.content)["authToken"]}
+def guacamole_authenticate():
+    global guacamole_token
+
+    # Try to log into the guacamole rest server
+    response = requests.post(guacamole_url + "api/tokens", data={"username": "guacadmin", "password": "guacadmin"},
+                             headers={"Content-type": "application/x-www-form-urlencoded"})
+
+    # Convert response content to python dictionary
+    content = json.loads(response.content)
+
+    # Check if we successfully logged into the guacamole rest server
+    if "authToken" in content:
+        guacamole_token = {'token': json.loads(response.content)["authToken"]}
+
+
 #
 # @app.route('/run', methods=['GET'])
 # def run():
@@ -256,6 +255,36 @@ def create_blender_container(blender_file):
     # ip_address = container_info["NetworkSettings"]["IPAddress"]
 
 
+def create_guacamole_connection(container_name):
+    # Connection information
+    connection = dict()
+
+    # Basic connection parameters
+    connection["name"] = container_name
+    connection["parentIdentifier"] = "ROOT"
+    connection["protocol"] = "vnc"
+
+    # Create attributes dictionary
+    connection["attributes"] = dict()
+
+    # And populate it with the proper values
+    connection["attributes"]["max-connections"] = "100"
+    connection["attributes"]["max-connections-per-user"] = "100"
+
+    # Create protocol specific parameters dictionary
+    connection["parameters"] = dict()
+
+    # And populate it with the proper vnc parameters
+    connection["parameters"]["hostname"] = container_name
+    connection["parameters"]["port"] = "5900"
+    connection["parameters"]["password"] = "vncpassword"
+    connection["parameters"]["read-only"] = False
+    connection["parameters"]["color-depth"] = 24
+
+    # Add the new connection using the guacamole rest api
+    response = requests.post(guacamole_url + "api/data/mysql/connections", data=json.dumps(connection), params=guacamole_token, headers=json_header)
+
+
 @app.route("/view", methods=["GET"])
 def view():
     blender_file = str(request.args.get("blender_file"))
@@ -269,5 +298,8 @@ def home():
 
 
 if __name__ == '__main__':
+    # Obtain authentication token (used in REST calls) from Guacamole server
+    guacamole_authenticate()
+
+    # Run the Flask application with debugging
     app.run(host="0.0.0.0", port=80, debug=True, use_debugger=True)
-# app.run(host="0.0.0.0", port=80)
