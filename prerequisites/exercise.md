@@ -1,7 +1,6 @@
 # Prerequisites
 Before we can begin with the actual exercises, please make sure that you:
 * Have a recent version of [Docker](https://www.docker.com/) installed
-<!---* Have a Python distribution such as [Anaconda](https://www.continuum.io/downloads) installed on your system-->
 * Created a [Guacamole MySQL Docker image](#guacamole-mysql-image)
 * Created a [Desktop Docker image](#desktop-image)
 * Created a [Blender Docker image](#blender-desktop-image) 
@@ -48,4 +47,4 @@ This builds the Blender Docker image and stores it in the local Docker registry.
 
 *In the exercises you will see references to this image in docker-compose.yml files.*
 
-
+<!---* Have a Python distribution such as [Anaconda](https://www.continuum.io/downloads) installed on your system-->
