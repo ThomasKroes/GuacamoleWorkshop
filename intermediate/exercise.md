@@ -1,5 +1,5 @@
 # Intermediate exercise
-The goal of this exercise is to make Blender available in the browser using Guacamole. We will start our web service using [Docker Compose](https://docs.docker.com/compose/) and configure Guacamole so that we can use Blender within the browser.
+The goal of this exercise is to make Blender available in the browser using Guacamole. We will start our web service using [Docker Compose](https://docs.docker.com/compose/) and configure Guacamole such that we can use Blender within the browser.
 
 **Note: In the interest of time, this exercise will be run locally on your system using Docker containers. Exposing the service to the outside world is beyond the scope of this exercise (of course guidance can be provided off-line).**
 
