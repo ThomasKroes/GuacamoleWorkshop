@@ -2,7 +2,7 @@
 *You are encouraged to first complete the [intermediate exercise](../intermediate/exercise.md) before diving into the advanced exercise.*  
 
 The goal of this exercise is to build a more advanced web service by using Guacamole's REST api. We are going to build a simple website that allows an end user to interact with a chosen 3D mesh model using Blender. To this end, we implement a rudimentary Flask web server that:
-* Creates Blender containers when 
+* Manages Blender containers 
 * Communicates with Guacamole through REST to manage connections
 * Provides a portal for viewing a Blender scene
 
