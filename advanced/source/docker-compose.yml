@@ -6,7 +6,7 @@ services:
     container_name: gw.advanced.guacd
 
   gw_guacdb:
-    image: guacdb
+    image: gw_guacdb
     container_name: gw.advanced.mysql
     environment:
       MYSQL_USER: root
@@ -24,7 +24,7 @@ services:
       MYSQL_DATABASE: guacamole
       MYSQL_USER: root
       MYSQL_PASSWORD: demo
-      GUACD_PORT_4822_TCP_ADDR: guacd
+      GUACD_PORT_4822_TCP_ADDR: gw_guacd
       GUACD_PORT_4822_TCP_PORT: 4822
 
   gw_proxy:
@@ -43,8 +43,10 @@ services:
   gw_flask:
     build: images/gw_flask
     container_name: gw.advanced.flask
+    depends_on:
+      - gw_guac
     volumes:
-      - ./images/flask:/flask
+      - ./images/gw_flask:/flask:ro
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - default
