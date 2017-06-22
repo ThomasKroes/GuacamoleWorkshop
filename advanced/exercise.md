@@ -72,11 +72,11 @@ The Guacamole Daemon container that connects with remote desktops over any arbit
 2. **gw_guacdb**  
 The Database container with Guacamole schema as produced earlier in the [prerequisites](../prerequisites/guide.md)
 3. **gw_guac**  
-The Guacamole server container. It connects to the Guacamole daemon container (*gw_guacd*) and the Database container (*gw_guacdb*)
+The Guacamole server container. It connects to the Guacamole daemon container **gw_guacd** and the Database container **gw_guacdb**
 4. **gw_proxy**  
-An NGINX reverse proxy for routing traffic to the appropriate container. In this web service we have a container for our model loader front-end (*gw_flask*) and a Guacamole container for establishing the remote desktop connection (*gw_guac*). As you can see in the [nginx configuration file](source/images/gw_proxy/nginx.conf), traffic from `http://localhost/guacamole` is directed to the Guacamole server container `proxy_pass http://gw_guac:8080/guacamole/;`. Traffic from `http://localhost/flask` is directed to the Flask webserver container `proxy_pass http://gw_flask/;`.
+An NGINX reverse proxy for routing traffic to the appropriate container. In this web service we have a container for our model loader front-end **gw_flask** and a Guacamole container for establishing the remote desktop connection **gw_guac**. As you can see in the [nginx configuration file](source/images/gw_proxy/nginx.conf), traffic from `http://localhost/guacamole` is directed to the Guacamole server container `proxy_pass http://gw_guac:8080/guacamole/;`. Traffic from `http://localhost/flask` is directed to the Flask webserver container `proxy_pass http://gw_flask/;`.
 5. **gw_flask**  
-The Flask webserver that provides a front-end where users can choose a Blender scene and view it in the browser. Under the hood, it creates and starts Blender containers (as created in the [prerequisites](../prerequisites/guide.md)). Furthermore, it automatically creates and configures connections to those Blender containers using Guacamole's REST api. This container is based on the [gw_flask image](#anatomy-of-the-flask-web-server).
+The Flask webserver that provides a front-end where users can choose a Blender scene and view it in the browser. Under the hood, it creates and starts Blender containers (as created in the [prerequisites](../prerequisites/guide.md)). Furthermore, it automatically creates and configures connections to those Blender containers using Guacamole's REST api. This container is based on the **gw_flask image** which is described in detail in the following section.
 
 ## Anatomy of the Flask web server
 The source code for the Flask application that runs in **gw_flask** is located in [app.py](source/images/gw_flask/app.py).
