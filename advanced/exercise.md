@@ -65,7 +65,6 @@ services:
     networks:
       - default
 ```
-In the [intermediate](../intermediate/exercise.md) 
 
 This web service consists of the following parts:  
 1. **gw_guacd**  
