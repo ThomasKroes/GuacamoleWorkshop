@@ -105,18 +105,15 @@ A Blender container as produced earlier in the [prerequisites](../prerequisites/
 ![connection](images/connection.png "Connection page")
 10. Fill out this form with the settings above  
 The host parameter is set to the service name (blender) in the [Docker Compose](https://docs.docker.com/compose/) file:
-
     ```yml
-      # Blender container
-      blender:
-        # Blender image from the local Docker registry (created in the prerequisites section)
-        image: blender
-        container_name: intermediate.blender
+    gw_blender:
+        image: gw_blender
+        container_name: gw.intermediate.blender
         environment:
-          # The mesh model to load in Blender
           BLENDER_FILE: shopping_cart.blend
         networks:
           - default
+    ```
 11. Click **save** at the bottom of the form
 12. Click the **guacadmin** button at the top right and choose **Blender** to connect:
 ![launch](images/launch.png "Launch")
