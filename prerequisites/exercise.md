@@ -18,7 +18,7 @@ This directory contains the following file(s):
 [Dockerfile](gw_guacdb/Dockerfile) for building the image  
 [initdb.sql](gw_guacdb/initdb.sql) for injecting the SQL schema at image creation time
 2. Execute `docker build . -t gw_guacdb`  
-This builds the Guacamole database Docker image and stores it in the local Docker registry as `gw_guacdb`.  
+This builds the Guacamole database Docker image and stores it in the local Docker registry as **gw_guacdb**.  
 
 *In the exercises you will see references to this image in docker-compose.yml files.*
 
@@ -32,7 +32,7 @@ This directory contains the following file(s):
 [startup.sh](gw_desktop/startup.sh) is the main entry point for the Docker container  
 [supervisord.conf](gw_desktop/supervisord.conf) configures the process manager (e.g. XVFB, X11VNC & SSH)
 2. Execute `docker build . -t gw_desktop`  
-This builds the desktop Docker image and stores it in the local Docker registry as `gw_desktop`.
+This builds the desktop Docker image and stores it in the local Docker registry as **gw_desktop**.
 
 ## Blender desktop image
 The goal of this workshop is to make Blender available in the browser. In order to do so, we create a Blender Docker image which is based on the previously generated [Desktop image](#desktop-image).
@@ -42,7 +42,7 @@ Follow the steps below to create the Docker image:
 This directory contains the following file(s):  
 [Dockerfile](guacdb/Dockerfile) for building the image  
 2. Execute `docker build . -t gw_blender`  
-This builds the Blender Docker image and stores it in the local Docker registry.  
+This builds the Blender Docker image and stores it in the local Docker registry as **gw_blender**.  
 
 *In the exercises you will see references to this image in docker-compose.yml files.*
 
