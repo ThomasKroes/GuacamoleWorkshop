@@ -76,7 +76,7 @@ The Database container with Guacamole schema as produced earlier in the [prerequ
 3. **gw_guac**  
 The Guacamole server container. It connects to the Guacamole daemon container (*gw_guacd*) and the Database container (*gw_guacdb*)
 4. **gw_proxy**  
-An NGINX reverse proxy for routing traffic from *localhost:80* to the the appropriate container Guacamole container at *http://gw_guac:8080/guacamole/*.
+An NGINX reverse proxy for routing traffic from `localhost:80` to the the appropriate container Guacamole container at `http://gw_guac:8080/guacamole/`.
 5. **gw_blender**  
 A Blender container as produced earlier in the [prerequisites](../prerequisites/exercise.md). Later on this exercise you will configure Guacamole such that you can interact with Blender from the browser. The container is provided with an environment variable BLENDER_FILE which the container uses to load the proper Blender scene:  
 ```yml
