@@ -2,17 +2,17 @@ version: '2'
 
 services:
   # Guacamole daemon that connects to the desktops
-  guacd:
+  gw_guacd:
     image: glyptodon/guacd:0.9.9
-    container_name: intermediate.guacd
+    container_name: gw.intermediate.guacd
     networks:
       - default
 
   # Backend database used by Guacamole
-  mysql:
+  gw_guacdb:
     # Guacamole database image from the local Docker registry (created in the prerequisites section)
     image: guacdb
-    container_name: intermediate.guacdb
+    container_name: gw.intermediate.guacdb
     volumes:
       - /var/lib/mysql:/var/lib/mysql
     environment:
@@ -23,12 +23,12 @@ services:
       - default
 
   # This is the actual Guacamole web server
-  guac:
+  gw_guac:
     image: glyptodon/guacamole:0.9.9
-    container_name: intermediate.guac
+    container_name: gw.intermediate.guac
     depends_on:
-      - guacd
-      - mysql
+      - gw_guacd
+      - gw_guacdb
     environment:
       MYSQL_HOSTNAME: mysql
       MYSQL_DATABASE: guacamole
@@ -40,13 +40,13 @@ services:
       - default
 
   # Nginx proxy
-  proxy:
+  gw_proxy:
     build: images/proxy
-    container_name: intermediate.proxy
+    container_name: gw.intermediate.proxy
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     depends_on:
-      - guac
+      - gw_guac
     ports:
       - 80:80
     networks:
@@ -56,7 +56,7 @@ services:
   blender:
     # Blender image from the local Docker registry (created in the prerequisites section)
     image: blender
-    container_name: intermediate.blender
+    container_name: gw.intermediate.blender
     environment:
       # The mesh model to load in Blender
       BLENDER_FILE: shopping_cart.blend

@@ -1,41 +1,50 @@
 version: '2'
 
 services:
-  guacd:
+  gw_guacd:
     image: glyptodon/guacd:0.9.9
-    container_name: demo.ewi.tudelft.nl.guacd
+    container_name: gw.advanced.guacd
 
-  mysql:
-    image: bbmri.registry.ewi.tudelft.nl/sandbox/guacdb
-    container_name: demo.ewi.tudelft.nl.mysql
+  gw_guacdb:
+    image: guacdb
+    container_name: gw.advanced.mysql
     environment:
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: demo
       MYSQL_DATABASE: guacamole
 
-  guac:
+  gw_guac:
     image: glyptodon/guacamole:0.9.9
-    container_name: demo.ewi.tudelft.nl.guac
+    container_name: gw.advanced.guac
     depends_on:
-      - guacd
-      - mysql
+      - gw_guacd
+      - gw_guacdb
     environment:
-      MYSQL_HOSTNAME: mysql
+      MYSQL_HOSTNAME: gw_guacdb
       MYSQL_DATABASE: guacamole
       MYSQL_USER: root
       MYSQL_PASSWORD: demo
       GUACD_PORT_4822_TCP_ADDR: guacd
       GUACD_PORT_4822_TCP_PORT: 4822
 
-  proxy:
+  gw_proxy:
     build: images/proxy
-    container_name: demo.ewi.tudelft.nl.proxy
+    container_name: gw.advanced.proxy
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     depends_on:
-      - guac
-    environment:
-      VIRTUAL_HOST: demo.ewi.tudelft.nl
+      - gw_guac
+      - gw_flask
     networks:
-      - gateway
+      - default
+    ports:
+      - 80:80
+
+  gw_flask:
+    build: images/flask
+    container_name: gw.advanced.flask
+    volumes:
+      - ./images/flask:/flask
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
       - default

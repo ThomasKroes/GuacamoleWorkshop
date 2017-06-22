@@ -1,0 +1,5 @@
+Flask==0.10.1
+docker-py
+shortuuid
+requests
+python-dateutil
