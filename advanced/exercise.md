@@ -111,7 +111,24 @@ It serves a static HTML file that allows users to choose from thee sample Blende
 </body>
 </html>
 ```
+When a Blender scene is picked, the user is redirected to:
 
+```python
+@app.route("/view", methods=["GET"])
+def view():
+    blender_file = str(request.args.get("blender_file"))
 
+    # Create Blender Docker container
+    container_name = create_blender_container(blender_file)
+
+    # Hack to ensure the container is fully operational when we start streaming
+    time.sleep(2.5)
+
+    # Redirect to Guacamole Blender connection
+    return redirect(create_guacamole_connection(container_name))
+```
+
+This part defines a Flask view for viewing a particular Blender scene. First, the Blender file that needs to be displayed is extracted from the request arguments. Once the Blender file is known, a Blender container is created and started. Then, a new Guacamole connection to the previously generated Blender container is made, and the user is redirect to the page that connects to the Blender container with Guacamole.
+   
 
 
