@@ -160,9 +160,7 @@ def create_blender_container(blender_file):
     return container_name
 ```
 
-First, a unique container name is generated and, in order to avoid name conflicts. Next, the BLENDER_FILE environment variable is set to the value that the user specified. This way, when the Blender container starts up it will load the appropriate Blender file. The Blender container also has to join the default network in order to allow for communication between the Guacamole server and Blender. What remains is to create and start the container. The function returns the container ID, which is used later as a reference in Guacamole.
-
-Once the Blender container is created and started, a new connection has to be made in Guacamole:
+First, a unique container name is generated in order to avoid name conflicts. Next, the BLENDER_FILE environment variable is set to the value that the user specified. This way, when the Blender container starts up it will load the appropriate Blender file. The Blender container also has to join the default network in order to allow for communication between the Guacamole server and Blender. What remains is to create and start the container. The function returns the container ID, which is used later as a reference in Guacamole. Once the Blender container is created and started, a new connection has to be made in Guacamole:
 ```python
 # Add connection to Blender Docker container using Guacamole's REST api
 def create_guacamole_connection(container_name):
@@ -214,6 +212,23 @@ def create_guacamole_connection(container_name):
 
     return "http://localhost/guacamole/#/client/" + client_base64 + "?username=guacadmin&password=guacadmin"
 ```
-   
+First an authentication token is obtained from the Guacamole server:
+```python
+# Obtain an authentication token from the Guacamole server (token is used in REST calls)
+def guacamole_authenticate():
+    global guacamole_token
 
+    # Post request to obtain token
+    response = requests.post(guacamole_url + "api/tokens", auth=('guacadmin', 'guacadmin'))
+
+    # Convert response content to python dictionary
+    content = json.loads(response.content)
+
+    # Check if we successfully logged into the guacamole rest server
+    if "authToken" in content:
+        return {'token': json.loads(response.content)["authToken"]}
+    else:
+        return None
+```
+If a valid authentication token has been obtained, a connection dictionary is populated with various settings such as no. concurrent users and VNC settings.
 
