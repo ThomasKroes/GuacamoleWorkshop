@@ -30,7 +30,7 @@ Follow the steps below to create the Docker image:
 This directory contains the following file(s):  
 [Dockerfile](gw_desktop/Dockerfile) for building the image.  
 [startup.sh](gw_desktop/startup.sh) is the main entry point for the Docker container  
-[supervisord.conf](gw_desktop/supervisord.conf) configures the process manager (e.g. XVFB, X11VNC & SSH)
+[supervisord.conf](gw_desktop/supervisord.conf) configures the process manager and services (e.g. XVFB, X11VNC & SSH)
 2. Execute `docker build . -t gw_desktop`  
 This builds the desktop Docker image and stores it in the local Docker registry as **gw_desktop**.
 
