@@ -41,7 +41,7 @@ services:
 
   # Nginx proxy
   gw_proxy:
-    build: images/proxy
+    build: images/gw_proxy
     container_name: gw.intermediate.proxy
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro

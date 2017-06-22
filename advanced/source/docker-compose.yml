@@ -28,7 +28,7 @@ services:
       GUACD_PORT_4822_TCP_PORT: 4822
 
   gw_proxy:
-    build: images/proxy
+    build: images/gw_proxy
     container_name: gw.advanced.proxy
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
@@ -41,7 +41,7 @@ services:
       - 80:80
 
   gw_flask:
-    build: images/flask
+    build: images/gw_flask
     container_name: gw.advanced.flask
     volumes:
       - ./images/flask:/flask
