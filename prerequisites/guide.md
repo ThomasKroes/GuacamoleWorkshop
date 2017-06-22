@@ -35,7 +35,7 @@ This directory contains the following file(s):
 This builds the desktop Docker image and stores it in the local Docker registry as **gw_desktop**.
 
 ## Blender desktop image
-The goal of this workshop is to make Blender available in the browser. In order to do so, we create a Blender Docker image which is based on the previously generated [Desktop image](#desktop-image).
+The goal of this workshop is to make Blender available in the browser. To this end, we create a Blender Docker image which is based on the previously generated [Desktop image](#desktop-image).
 
 Follow the steps below to create the Docker image:
 1. Open a terminal and navigate to `{clone_dir}/prerequisites/gw_blender/`.  
