@@ -120,3 +120,5 @@ The host parameter is set to the service name (blender) in the [Docker Compose](
 12. If the connection is successfully established you should see the Blender GUI with a mesh models of a shopping cart:
 ![blender](images/blender.png "blender")  
 You can click **Ctrl + Alt + Shift** at any time to open the **settings** sidebar
+
+**Note: The URL can be shared with others to enable collaboration (multiple users share control over the remote desktop)**  
