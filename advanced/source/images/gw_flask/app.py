@@ -5,7 +5,7 @@ import json
 import base64
 
 from docker import Client
-from flask import Flask, redirect, request, current_app
+from flask import Flask, redirect, request, render_template
 
 app = Flask(__name__)
 
@@ -130,7 +130,7 @@ def view():
 # Front end
 @app.route("/")
 def home():
-    return current_app.send_static_file("./html/index.html")
+    return render_template("index.html")
 
 
 if __name__ == '__main__':

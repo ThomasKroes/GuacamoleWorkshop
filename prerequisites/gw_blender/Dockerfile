@@ -23,8 +23,6 @@ RUN cd /home/data && wget https://github.com/ThomasKroes/GuacamoleWorkshop/raw/m
 RUN cd /home/data && wget https://github.com/ThomasKroes/GuacamoleWorkshop/raw/master/fire_extinguisher.blend;
 RUN cd /home/data && wget https://github.com/ThomasKroes/GuacamoleWorkshop/raw/master/shopping_cart.blend;
 
-#RUN cd /home/data && echo $(ls)
-
 # Start blender with desktop
 COPY blender.desktop /etc/xdg/autostart/
 COPY blender.sh /etc/xdg/autostart/
