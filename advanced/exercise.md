@@ -86,25 +86,32 @@ The Flask server provides a home view located at *http://localhost/flask*:
 # Front end
 @app.route("/")
 def home():
-    return current_app.send_static_file("./html/index.html")
+    return render_template("index.html")
 ```
-It serves a static HTML file that allows users to choose from thee sample Blender scenes:
+It renders a template HTML file using [Jinja](http://jinja.pocoo.org/) that allows users to choose from thee sample Blender scenes:
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Guacamole workshop - Advanced</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 <div class="jumbotron text-center">
-  <h1>View Blender scene</h1>
-  <p>Click to load Blender sample scene</p>
+    <h1>View Blender scene</h1>
+    <p>Click to load Blender sample scene</p>
     <div>
-        <button type="button" class="btn btn-primary" onclick="window.location.href='/flask/view?blender_file=shopping_cart.blend'">Shopping cart</button>
-        <button type="button" class="btn btn-primary" onclick="window.location.href='/flask/view?blender_file=fire_extinguisher.blend'">Fire extinguisher</button>
-        <button type="button" class="btn btn-primary" onclick="window.location.href='/flask/view?blender_file=watering_can.blend'">Watering can</button>
+        <button type="button" class="btn btn-primary"
+                onclick="window.open('/flask/view?blender_file=shopping_cart.blend', '_blank')">Shopping cart
+        </button>
+        <button type="button" class="btn btn-primary"
+                onclick="window.open('/flask/view?blender_file=fire_extinguisher.blend', '_blank')">Fire extinguisher
+        </button>
+        <button type="button" class="btn btn-primary"
+                onclick="window.open('/flask/view?blender_file=watering_can.blend', '_blank')">Watering can
+        </button>
     </div>
 </div>
 </body>
