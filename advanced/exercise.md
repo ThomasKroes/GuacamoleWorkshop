@@ -9,7 +9,7 @@ The goal of this exercise is to build a more advanced web service by using Guaca
 **Note: This exercise will also be run locally on your system using Docker containers. Exposing the service to the outside world is beyond the scope of this exercise (support for this can be provided off-line).**
 
 # Web service anatomy
-The webservice is defined in a Docker Compose file located [here](source/docker-compose.yml). It defines the services that constitute the webservice and configures how they are linked:
+The [Docker Compose](https://docs.docker.com/compose/) file located [here](source/docker-compose.yml) defines the required services and how they are linked:
 
 ```yml
 version: '2'
