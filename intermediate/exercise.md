@@ -7,7 +7,7 @@ Please make sure you have all the necessary [prerequisites](../prerequisites/exe
 
 ## Step 1: Starting the Guacamole web service
 1. Open a terminal and navigate to `{clone_url}/intermediate/source`
-2. Ensure no other service is occupying localhost:80 (e.g. the [intermediate](../intermediate/exercise.md) exercise)
+2. Ensure no other service is occupying localhost:80 (e.g. the [advanced](../advanced/exercise.md) exercise)
 3. Run `docker-compose up`  
 
 ## Step 2: Configure Guacamole
