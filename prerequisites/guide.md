@@ -1,5 +1,6 @@
 # Prerequisites
 Before we can begin with the actual exercises, please make sure that you:
+* Cloned this repository 
 * Have a recent version of [Docker](https://www.docker.com/) installed
 * Created a [Guacamole MySQL Docker image](#guacamole-mysql-image)
 * Created a [Desktop Docker image](#desktop-image)
