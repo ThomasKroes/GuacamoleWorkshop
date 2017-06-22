@@ -1,4 +1,3 @@
-
 import time
 import shortuuid
 import requests
@@ -8,13 +7,14 @@ import datetime
 import dateutil.parser
 
 from docker import Client
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, current_app
 
-app 				= Flask(__name__)
-docker_client 		= Client(base_url='unix://var/run/docker.sock')
-guacamole_url		= "localhost/guacamole/"
-guacamole_token 	= None
-json_header			= { "Content-type" : "application/json" }
+app = Flask(__name__)
+docker_client = Client(base_url='unix://var/run/docker.sock')
+guacamole_url = "localhost/guacamole/"
+guacamole_token = None
+json_header = {"Content-type": "application/json"}
+
 
 # def guacamole_authenticate():
 # 	global guacamole_token
@@ -220,11 +220,54 @@ json_header			= { "Content-type" : "application/json" }
 #
 # 	return "Removed containers: " + str(removed)
 
-@app.route('/')
-def index():
+def create_blender_container(blender_file):
+    # Create session id
+    session_id = str(shortuuid.uuid())
 
-	return current_app.send_static_file('/html/index.html')
+    # Compose container name
+    container_name = "blender_" + session_id
+
+    # Container environment variables
+    environment = ["BLENDER_FILE=" + blender_file]
+
+    # Blender image name in the local Docker registry
+    image_name = "gw_blender"
+
+    # Make sure we have the latest version of the viewer
+    docker_client.pull(image_name)
+
+    # Join the default network
+    networking_config = docker_client.create_networking_config(
+        {"default": docker_client.create_endpoint_config()
+         })
+
+    container = docker_client.create_container(image=image_name,
+                                               name=container_name,
+                                               environment=environment,
+                                               networking_config=networking_config,
+                                               cpuset="0-3")
+
+    docker_client.start(container=container.get('Id'))
+
+    # Hack to ensure the container is fully operational when we start streaming
+    time.sleep(2.5)
+
+    # Retrieve ip address from container info
+    # ip_address = container_info["NetworkSettings"]["IPAddress"]
+
+
+@app.route("/view", methods=["GET"])
+def view():
+    blender_file = str(request.args.get("blender_file"))
+
+    return blender_file
+
+
+@app.route("/")
+def home():
+    return current_app.send_static_file("./html/index.html")
+
 
 if __name__ == '__main__':
-	app.run(host="0.0.0.0", port=80, debug=True, use_debugger=True)
-	#app.run(host="0.0.0.0", port=80)
+    app.run(host="0.0.0.0", port=80, debug=True, use_debugger=True)
+# app.run(host="0.0.0.0", port=80)

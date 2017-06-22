@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Guacamole workshop - Advanced</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-
+<div class="jumbotron text-center">
+  <h1>View Blender scene</h1>
+  <p>Click to load Blender sample scene</p>
+    <div>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='/flask/view?blender_file=shopping_cart.blend'">Shopping cart</button>
+        <button type="button" class="btn btn-primary">Fire extinguisher</button>
+        <button type="button" class="btn btn-primary">Watering can</button>
+    </div>
+</div>
 </body>
 </html>
