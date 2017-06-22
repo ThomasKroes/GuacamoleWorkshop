@@ -89,7 +89,7 @@ A Blender container as produced earlier in the [prerequisites](../prerequisites/
 3. Run `docker-compose up`  
 
 ## Step 2: Configure Guacamole
-1. In a browser of choice, navigate to [localhost](http://localhost)
+1. In a browser of choice, navigate to [http://localhost](http://localhost)
 2. You will be presented with a login page:  
 ![login](images/login.png "Login page")  
 3. Enter the following credentials: *guacadmin/guacadmin*
