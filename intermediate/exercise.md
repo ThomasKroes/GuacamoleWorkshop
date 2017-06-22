@@ -3,7 +3,7 @@ The goal of this exercise is to make Blender available in the browser using Guac
 
 **Note: In the interest of time, this exercise will be run locally on your system using Docker containers. Exposing the service to the outside world is beyond the scope of this exercise (of course guidance can be provided off-line).**
 
-Please make sure you have all the necessary [prerequisites](../prerequisites/prerequisites.md) before going any further.
+Please make sure you have all the necessary [prerequisites](../prerequisites/guide.md) before going any further.
 
 ## Web service anatomy
 The [Docker Compose](https://docs.docker.com/compose/) file located [here](source/docker-compose.yml) defines the required services and how they are linked:
@@ -71,13 +71,13 @@ This web service consists of the following parts:
 1. **gw_guacd**  
 The Guacamole Daemon container that connects with remote desktops over any arbitrary protocol
 2. **gw_guacdb**  
-The Database container with Guacamole schema as produced earlier in the [prerequisites](../prerequisites/prerequisites.md)
+The Database container with Guacamole schema as produced earlier in the [prerequisites](../prerequisites/guide.md)
 3. **gw_guac**  
 The Guacamole server container. It connects to the Guacamole daemon container (*gw_guacd*) and the Database container (*gw_guacdb*)
 4. **gw_proxy**  
 An NGINX reverse proxy for routing traffic from `localhost:80` to the the appropriate container Guacamole container at `http://gw_guac:8080/guacamole/`.
 5. **gw_blender**  
-A Blender container as produced earlier in the [prerequisites](../prerequisites/prerequisites.md). Later on this exercise you will configure Guacamole such that you can interact with Blender from the browser. The container is provided with an environment variable BLENDER_FILE which the container uses to load the proper Blender scene:  
+A Blender container as produced earlier in the [prerequisites](../prerequisites/guide.md). Later on this exercise you will configure Guacamole such that you can interact with Blender from the browser. The container is provided with an environment variable BLENDER_FILE which the container uses to load the proper Blender scene:  
 ```yml
     environment:
       BLENDER_FILE: shopping_cart.blend
