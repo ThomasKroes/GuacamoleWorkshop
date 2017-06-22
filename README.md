@@ -9,7 +9,7 @@ This workshop consists of an [intermediate](/intermediate) exercise in which we 
 
 ## Guides
 Below are links to PDF's that will guide you through the workshop:  
-[Prerequisites](/prerequisites/exercise.md)  
+[Prerequisites](/prerequisites/guide.md)  
 [Intermediate guide](/intermediate/exercise.md)    
 [Advanced guide](/advanced/exercise.md)
 
