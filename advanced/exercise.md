@@ -8,7 +8,7 @@ The goal of this exercise is to build a more advanced web service by using Guaca
 **Note: This exercise will also be run locally on your system using Docker containers. Exposing the service to the outside world is beyond the scope of this exercise (support for this can be provided off-line).**
 
 # Web service anatomy
-The webservice is defined in a Docker Compose file located [here](source/docker-compose.yml). It defines the services and how they are linked together:
+The webservice is defined in a Docker Compose file located [here](source/docker-compose.yml). It defines the services that constitute the webservice and configures how they are linked:
 
 ```yml
 version: '2'
@@ -63,9 +63,17 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - default
-
+```
+   
 This web service consists of the following parts:  
-1. 
+1. gw_guacd  
+The Guacamole Daemon container that connects with remote desktops over any arbitrary protocol
+2. gw_guacdb
+The Database container with Guacamole schema as produced earlier in the [prerequisites](../prerequisites/exercise.md)
+3. gw_guac
+The Guacamole server container. It connects to the Guacamole daemon container (*gw_guacd*) and the Database container (*gw_guacdb*)
+4. gw_proxy
+An NGINX reverse proxy for routing traffic to the appropriate container. In this web service we have a container for our model loader front-end (*gw_flask*) and a Guacamole container for establishing the remote desktop connection (*gw_guac*). As you can see in the [nginx.conf]() file, traffic from `http://localhost/guacamole` is directed to the Guacamole server container `proxy_pass http://gw_guac:8080/guacamole/;`. Traffic from `http://localhost/flask` is directed to the Flask webserver container `proxy_pass http://gw_flask/;`.
 
 
 
