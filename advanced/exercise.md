@@ -74,16 +74,44 @@ The Guacamole Daemon container that connects with remote desktops over any arbit
 The Database container with Guacamole schema as produced earlier in the [prerequisites](../prerequisites/exercise.md)
 3. **gw_guac**  
 The Guacamole server container. It connects to the Guacamole daemon container (*gw_guacd*) and the Database container (*gw_guacdb*)
-4. **gw_proxy**
+4. **gw_proxy**  
 An NGINX reverse proxy for routing traffic to the appropriate container. In this web service we have a container for our model loader front-end (*gw_flask*) and a Guacamole container for establishing the remote desktop connection (*gw_guac*). As you can see in the [nginx configuration file](source/images/gw_proxy/nginx.conf), traffic from `http://localhost/guacamole` is directed to the Guacamole server container `proxy_pass http://gw_guac:8080/guacamole/;`. Traffic from `http://localhost/flask` is directed to the Flask webserver container `proxy_pass http://gw_flask/;`.
 5. **gw_flask**  
-The Flask webserver that provides a rudimentary view for choosing a Blender scene. Under the hood, it creates and starts Blender containers (as created in the [prerequisites](../prerequisites/exercise.md)). Furthermore, it automagically creates and configures connections to those Blender containers using Guacamole's REST api. This container is based on the [gw_flask image](#flask-web-server).
+The Flask webserver that provides a front-end where users can choose a Blender scene and view it in the browser. Under the hood, it creates and starts Blender containers (as created in the [prerequisites](../prerequisites/exercise.md)). Furthermore, it automatically creates and configures connections to those Blender containers using Guacamole's REST api. This container is based on the [gw_flask image](#flask-web-server).
 
-## Flask web server
+## Anatomy of the Flask web server
+The source code for the Flask application that runs in **gw_flask** is located in [app.py](source/images/gw_flask/app.py).
+
+The Flask server provides a home view located at *http://localhost/flask*:
+```python
+# Front end
+@app.route("/")
+def home():
+    return current_app.send_static_file("./html/index.html")
+```
+It serves a static HTML file that allows users to choose from thee sample Blender scenes:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guacamole workshop - Advanced</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div class="jumbotron text-center">
+  <h1>View Blender scene</h1>
+  <p>Click to load Blender sample scene</p>
+    <div>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='/flask/view?blender_file=shopping_cart.blend'">Shopping cart</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='/flask/view?blender_file=fire_extinguisher.blend'">Fire extinguisher</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='/flask/view?blender_file=watering_can.blend'">Watering can</button>
+    </div>
+</div>
+</body>
+</html>
+```
 
 
 
-## Step 1: Create the Flask server Docker image
-1. Open a terminal and navigate to `{clone_dir}/intermediate/source`
-2. Ensure no other service is occupying localhost:80 (e.g. the [advanced](../advanced/exercise.md) exercise)
-3. Run `docker-compose up`
+
