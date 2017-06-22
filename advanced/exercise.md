@@ -230,5 +230,4 @@ def guacamole_authenticate():
     else:
         return None
 ```
-If a valid authentication token has been obtained, a connection dictionary is populated with various settings such as no. concurrent users and VNC settings.
-
+If a valid authentication token has been obtained, a connection dictionary is populated with various settings such as no. concurrent users and VNC settings. Next, the new connection is sent to Guacamole in a POST request. Finally, a connection string is returned that gives access to the Blender scene through Guacamole.
