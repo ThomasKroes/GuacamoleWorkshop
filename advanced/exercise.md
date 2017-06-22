@@ -2,7 +2,74 @@
 *You are encouraged to first complete the [intermediate exercise](../intermediate/exercise.md) before diving into the advanced exercise.*  
 
 The goal of this exercise is to build a more advanced web service by using Guacamole's REST api. We are going to build a simple website that allows an end user to interact with a chosen 3D mesh model using Blender. To this end, we implement a rudimentary Flask web server that:
-* Communicates with Guacamole through REST to manage users, connections etc.
+* Communicates with Guacamole through REST to manage connections
 * Provides a portal view for selecting a mesh model
 
 **Note: This exercise will also be run locally on your system using Docker containers. Exposing the service to the outside world is beyond the scope of this exercise (support for this can be provided off-line).**
+
+# Web service anatomy
+The webservice is defined in a Docker Compose file located [here](source/docker-compose.yml). It defines the services and how they are linked together:
+
+```yml
+version: '2'
+
+services:
+  gw_guacd:
+    image: glyptodon/guacd:0.9.9
+    container_name: gw.advanced.guacd
+
+  gw_guacdb:
+    image: gw_guacdb
+    container_name: gw.advanced.mysql
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: demo
+      MYSQL_DATABASE: guacamole
+
+  gw_guac:
+    image: glyptodon/guacamole:0.9.9
+    container_name: gw.advanced.guac
+    depends_on:
+      - gw_guacd
+      - gw_guacdb
+    environment:
+      MYSQL_HOSTNAME: gw_guacdb
+      MYSQL_DATABASE: guacamole
+      MYSQL_USER: root
+      MYSQL_PASSWORD: demo
+      GUACD_PORT_4822_TCP_ADDR: gw_guacd
+      GUACD_PORT_4822_TCP_PORT: 4822
+
+  gw_proxy:
+    build: images/gw_proxy
+    container_name: gw.advanced.proxy
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    depends_on:
+      - gw_guac
+      - gw_flask
+    networks:
+      - default
+    ports:
+      - 80:80
+
+  gw_flask:
+    build: images/gw_flask
+    container_name: gw.advanced.flask
+    depends_on:
+      - gw_guac
+    volumes:
+      - ./images/gw_flask:/flask:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - default
+
+This web service consists of the following parts:  
+1. 
+
+
+
+## Step 1: Create the Flask server Docker image
+1. Open a terminal and navigate to `{clone_dir}/intermediate/source`
+2. Ensure no other service is occupying localhost:80 (e.g. the [advanced](../advanced/exercise.md) exercise)
+3. Run `docker-compose up`
