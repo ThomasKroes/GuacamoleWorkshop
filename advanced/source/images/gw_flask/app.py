@@ -3,8 +3,6 @@ import shortuuid
 import requests
 import json
 import base64
-import datetime
-import dateutil.parser
 
 from docker import Client
 from flask import Flask, redirect, request, current_app
@@ -78,29 +76,28 @@ def create_guacamole_connection(container_name):
     connection = dict()
 
     # Basic connection parameters
-    connection["name"] = container_name
-    connection["parentIdentifier"] = "ROOT"
-    connection["protocol"] = "vnc"
+    connection["name"]              = container_name
+    connection["parentIdentifier"]  = "ROOT"
+    connection["protocol"]          = "vnc"
 
     # Create attributes dictionary
-    connection["attributes"] = dict()
+    connection["attributes"]  = dict()
 
     # And populate it with the proper values
-    connection["attributes"]["max-connections"] = "10"
-    connection["attributes"]["max-connections-per-user"] = "10"
+    connection["attributes"]["max-connections"]             = "10"
+    connection["attributes"]["max-connections-per-user"]    = "10"
 
     # Create protocol specific parameters dictionary
     connection["parameters"] = dict()
 
     # And populate it with the proper vnc parameters
-    connection["parameters"]["hostname"] = container_name
-    connection["parameters"]["port"] = "5900"
-    connection["parameters"]["read-only"] = False
+    connection["parameters"]["hostname"]    = container_name
+    connection["parameters"]["port"]        = "5900"
+    connection["parameters"]["read-only"]   = False
     connection["parameters"]["color-depth"] = 24
 
     # Add the new connection using the guacamole rest api
-    response = requests.post(guacamole_url + "api/data/mysql/connections", data=json.dumps(connection),
-                             params=guacamole_token, headers={"Content-type": "application/json"})
+    response = requests.post(guacamole_url + "api/data/mysql/connections", data=json.dumps(connection), params=guacamole_token, headers={"Content-type": "application/json"})
 
     # Get response content
     content = json.loads(response.content)
