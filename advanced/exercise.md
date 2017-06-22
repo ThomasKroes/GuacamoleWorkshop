@@ -231,3 +231,8 @@ def guacamole_authenticate():
         return None
 ```
 If a valid authentication token has been obtained, a connection dictionary is populated with various settings such as no. concurrent users and VNC settings. Next, the new connection is sent to Guacamole in a POST request. Finally, a connection string is returned that gives access to the Blender scene through Guacamole.
+
+## Running the web service
+1. Open a terminal and navigate to `{clone_dir}/advanced/source`
+2. Ensure no other service is occupying localhost:80 (e.g. the [advanced](../intermediate/exercise.md) exercise)
+3. Run `docker-compose up`
