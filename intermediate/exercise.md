@@ -7,17 +7,18 @@ Please make sure you have all the necessary [prerequisites](../prerequisites/exe
 
 ## Step 1: Starting the Guacamole web service
 1. Open a terminal and navigate to `{clone_url}/intermediate/source`
-2. Run `docker-compose up`
+2. Ensure no other service is occupying localhost:80 (e.g. the [advanced](../advanced/exercise.md) exercise)
+3. Run `docker-compose up`  
 
 ## Step 2: Configure Guacamole
 1. In a browser of choice, navigate to [localhost](http://localhost)
 2. You will be presented with a login page:  
 ![login](images/login.png "Login page")  
 3. Enter the following credentials: *guacadmin/guacadmin*
-4. The home page appears:
+4. The **home** page appears:
 ![home](images/home.png "Home page")
 5. Click the **guacadmin** button at the top right and choose **settings**
-6. The settings page appears:  
+6. The **settings** page appears:  
 ![settings](images/settings.png "Settings page")  
 7. Go to the **connections** tab:  
 ![connections](images/connections.png "Connections tab")
@@ -39,7 +40,8 @@ The host parameter is set to the service name (blender) in the [Docker Compose](
         networks:
           - default
 11. Click **save** at the bottom of the form
-12. Click the **guacadmin** button at the top right and choose **Blender**:
-![blender](images/blender.png "Blender")
-
-*Press Ctrl + Alt + Shift to go to the settings menu during active connection
+12. Click the **guacadmin** button at the top right and choose **Blender** to connect:
+![launch](images/launch.png "Launch")
+12. If the connection is successfully established you should see the Blender GUI with a mesh models of a shopping cart:
+![blender](images/blender.png "blender")  
+You can click **Ctrl + Alt + Shift** at any time to open the **settings** sidebar
