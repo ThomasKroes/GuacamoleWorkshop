@@ -2,6 +2,7 @@
 *You are encouraged to first complete the [intermediate exercise](../intermediate/exercise.md) before diving into the advanced exercise.*  
 
 The goal of this exercise is to build a more advanced web service by using Guacamole's REST api. We are going to build a simple website that allows an end user to interact with a chosen 3D mesh model using Blender. To this end, we implement a rudimentary Flask web server that:
+* Creates Blender containers when 
 * Communicates with Guacamole through REST to manage connections
 * Provides a portal view for selecting a mesh model
 
@@ -75,7 +76,9 @@ The Guacamole server container. It connects to the Guacamole daemon container (*
 4. **gw_proxy**
 An NGINX reverse proxy for routing traffic to the appropriate container. In this web service we have a container for our model loader front-end (*gw_flask*) and a Guacamole container for establishing the remote desktop connection (*gw_guac*). As you can see in the [nginx configuration file](source/images/gw_proxy/nginx.conf), traffic from `http://localhost/guacamole` is directed to the Guacamole server container `proxy_pass http://gw_guac:8080/guacamole/;`. Traffic from `http://localhost/flask` is directed to the Flask webserver container `proxy_pass http://gw_flask/;`.
 5. **gw_flask**
-The Flask webserver that provides a rudimentary view for choosing a Blender scene. Under the hood, it creates and start Blender containers (as created in the [prerequisites](../prerequisites/exercise.md)). Furthermore, it automagically creates and configures connections to those Blender containers using Guacamole's REST api.
+The Flask webserver that provides a rudimentary view for choosing a Blender scene. Under the hood, it creates and start Blender containers (as created in the [prerequisites](../prerequisites/exercise.md)). Furthermore, it automagically creates and configures connections to those Blender containers using Guacamole's REST api. This container is based on the [gw_flask image](#flask-web-server) .
+
+## Flask web server
 
 
 
