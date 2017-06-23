@@ -121,7 +121,7 @@ def view():
     container_name = create_blender_container(blender_file)
 
     # Hack to ensure the container is fully operational when we start streaming
-    time.sleep(2.5)
+    time.sleep(2.0)
 
     # Redirect to Guacamole Blender connection
     return redirect(create_guacamole_connection(container_name))
