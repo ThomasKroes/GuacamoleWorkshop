@@ -73,7 +73,7 @@ The Guacamole Daemon container that connects with remote desktops over any arbit
 2. **gw_guacdb**  
 The Database container with Guacamole schema as produced earlier in the [prerequisites](../prerequisites/guide.md)
 3. **gw_guac**  
-The Guacamole server container. It connects to the Guacamole daemon container (*gw_guacd*) and the Database container (*gw_guacdb*)
+The Guacamole server container. It connects to the Guacamole daemon container **gw_guacd** and the Database container **gw_guacdb**
 4. **gw_proxy**  
 An NGINX reverse proxy for routing traffic from `localhost:80` to the the appropriate container Guacamole container at `http://gw_guac:8080/guacamole/`.
 5. **gw_blender**  
