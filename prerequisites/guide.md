@@ -49,4 +49,6 @@ This builds the Blender Docker image and stores it in the local Docker registry 
 
 *In the exercises you will see references to this image in docker-compose.yml files.*
 
+You can now continue with the [intermediate](../intermediate/exercise.md) or [advanced](../advanced/exercise.md) exercise.
+
 <!---* Have a Python distribution such as [Anaconda](https://www.continuum.io/downloads) installed on your system-->
