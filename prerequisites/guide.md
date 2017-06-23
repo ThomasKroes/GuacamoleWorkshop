@@ -1,5 +1,6 @@
 # Prerequisites
 Before we can begin with the actual exercises, please make sure that you:
+* Cloned this repository 
 * Have a recent version of [Docker](https://www.docker.com/) installed
 * Created a [Guacamole MySQL Docker image](#guacamole-mysql-image)
 * Created a [Desktop Docker image](#desktop-image)
@@ -41,11 +42,13 @@ Follow the steps below to create the Docker image:
 1. Open a terminal and navigate to `{clone_dir}/prerequisites/gw_blender/`.  
 This directory contains the following file(s):  
 [blender.desktop](gw_blender/blender.desktop) runs at startup and executes blender.sh  
-[blender.sh](gw_blender/blender.sh) starts Blender with the appropriate scene (from environment variable BLENDER_FILE  
+[blender.sh](gw_blender/blender.sh) starts Blender with the appropriate scene (from environment variable BLENDER_FILE)  
 [Dockerfile](gw_blender/Dockerfile) for building the image  
 2. Execute `docker build . -t gw_blender`  
 This builds the Blender Docker image and stores it in the local Docker registry as **gw_blender**.  
 
 *In the exercises you will see references to this image in docker-compose.yml files.*
+
+You can now continue with the [intermediate](../intermediate/exercise.md) or [advanced](../advanced/exercise.md) exercise.
 
 <!---* Have a Python distribution such as [Anaconda](https://www.continuum.io/downloads) installed on your system-->

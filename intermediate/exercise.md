@@ -73,7 +73,7 @@ The Guacamole Daemon container that connects with remote desktops over any arbit
 2. **gw_guacdb**  
 The Database container with Guacamole schema as produced earlier in the [prerequisites](../prerequisites/guide.md)
 3. **gw_guac**  
-The Guacamole server container. It connects to the Guacamole daemon container (*gw_guacd*) and the Database container (*gw_guacdb*)
+The Guacamole server container. It connects to the Guacamole daemon container **gw_guacd** and the Database container **gw_guacdb**
 4. **gw_proxy**  
 An NGINX reverse proxy for routing traffic from `localhost:80` to the the appropriate container Guacamole container at `http://gw_guac:8080/guacamole/`.
 5. **gw_blender**  
@@ -120,3 +120,5 @@ The host parameter is set to the service name (blender) in the [Docker Compose](
 12. If the connection is successfully established you should see the Blender GUI with a mesh models of a shopping cart:
 ![blender](images/blender.png "blender")  
 You can click **Ctrl + Alt + Shift** at any time to open the **settings** sidebar
+
+**Note: The URL in the address bar can be shared with others to enable collaboration (multiple users share control over the remote desktop)**  
