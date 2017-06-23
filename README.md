@@ -8,7 +8,7 @@ The goal is to learn more about how to setup Guacamole and to use use its REST a
 This workshop consists of an [intermediate](/intermediate) exercise in which we use Guacamole to make Blender available in the browser. In the [advanced](/advanced) exercise, we work with the Guacamole REST api to build a small webservice for Blender.
 
 ## Guides
-Below are links to PDF's that will guide you through the workshop:  
+The links below guide you through the exercises:  
 [Prerequisites](/prerequisites/guide.md)  
 [Intermediate guide](/intermediate/exercise.md)    
 [Advanced guide](/advanced/exercise.md)
