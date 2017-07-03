@@ -54,7 +54,7 @@ services:
     depends_on:
       - gw_guac
     ports:
-      - 80:80
+      - 8080:80
     networks:
       - default
 
@@ -89,7 +89,7 @@ A Blender container as produced earlier in the [prerequisites](../prerequisites/
 3. Run `docker-compose up`  
 
 ## Step 2: Configure Guacamole
-1. In a browser of choice, navigate to [http://localhost](http://localhost)
+1. In a browser of choice, navigate to [http://localhost:8080](http://localhost:8080)
 2. You will be presented with a login page:  
 ![login](login.png "Login page")  
 3. Enter the following credentials: *guacadmin/guacadmin*
