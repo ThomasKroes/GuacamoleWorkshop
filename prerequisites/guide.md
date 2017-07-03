@@ -24,7 +24,7 @@ This builds the Guacamole database Docker image and stores it in the local Docke
 *In the exercises you will see references to this image in docker-compose.yml files.*
 
 ## Desktop image
-In the following exercises, we will run Blender in a Docker container based on a desktop Docker image. This desktop image combines [XFCE](https://xfce.org/) with [XVFB](https://en.wikipedia.org/wiki/Xvfb), so that the desktop containers can be run headless. Furthermore it has [VNC](http://www.karlrunge.com/x11vnc/) for remote control by Guacamole.  
+In the following exercises, we will run Blender in a Docker container based on a desktop Docker image. This desktop image combines [XFCE](https://xfce.org/) with a virtual frame buffer ([XVFB](https://en.wikipedia.org/wiki/Xvfb)), so that the desktop containers can be run headless. Furthermore it has [VNC](http://www.karlrunge.com/x11vnc/) for remote control by Guacamole.  
 
 Follow the steps below to create the Docker image:
 1. Open a terminal and navigate to `{clone_dir}/prerequisites/gw_desktop/`.  
