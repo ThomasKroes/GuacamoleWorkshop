@@ -241,7 +241,7 @@ If a valid authentication token has been obtained, a connection dictionary is po
 
 ## Running the web service
 1. Open a terminal and navigate to `{clone_dir}/advanced`
-2. Ensure no other service is occupying localhost:80 (e.g. the [advanced](../intermediate/exercise.md) exercise)
+2. Ensure no other service is occupying localhost:80 (e.g. the [intermediate](../intermediate/exercise.md) exercise)
 3. Run `docker-compose up`
 4. In a browser of choice, navigate to [http://localhost/flask](http://localhost/flask)
 5. You will be presented with the portal:  
