@@ -43,7 +43,7 @@ services:
     depends_on:
       - gw_guac
     ports:
-      - 80:80
+      - 8080:80
     networks:
       - default
 

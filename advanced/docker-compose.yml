@@ -38,7 +38,7 @@ services:
     networks:
       - default
     ports:
-      - 80:80
+      - 8081:80
 
   gw_flask:
     build: images/gw_flask

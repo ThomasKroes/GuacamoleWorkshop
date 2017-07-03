@@ -52,7 +52,7 @@ services:
     networks:
       - default
     ports:
-      - 80:80
+      - :8081:80
 
   gw_flask:
     build: images/gw_flask
@@ -81,7 +81,7 @@ The Flask webserver that provides a front-end where users can choose a Blender s
 ## Anatomy of the Flask web server
 The source code for the Flask application that runs in **gw_flask** is located in [app.py](source/images/gw_flask/app.py).
 
-The Flask server provides a home view located at *http://localhost/flask*:
+The Flask server provides a home view located at *http://localhost:8081/flask*:
 ```python
 # Front end
 @app.route("/")
