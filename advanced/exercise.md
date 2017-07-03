@@ -154,7 +154,7 @@ def create_blender_container(blender_file):
 
     # Join the default network
     networking_config = docker_client.create_networking_config(
-        {"source_default": docker_client.create_endpoint_config()})
+        {"advanced_default": docker_client.create_endpoint_config()})
 
     container = docker_client.create_container(image=image_name,
                                                name=container_name,
