@@ -74,7 +74,7 @@ The Database container with Guacamole schema as produced earlier in the [prerequ
 3. **gw_guac**  
 The Guacamole server container. It connects to the Guacamole daemon container **gw_guacd** and the Database container **gw_guacdb**
 4. **gw_proxy**  
-An NGINX reverse proxy for routing traffic to the appropriate container. In this web service we have a container for our model loader front-end **gw_flask** and a Guacamole container for establishing the remote desktop connection **gw_guac**. As you can see in the [nginx configuration file](images/gw_proxy/nginx.conf), traffic from `http://localhost/guacamole` is directed to the Guacamole server container `proxy_pass http://gw_guac:8080/guacamole/;`. Traffic from `http://localhost/flask` is directed to the Flask webserver container `proxy_pass http://gw_flask/;`.
+An NGINX reverse proxy for routing traffic to the appropriate container. In this web service we have a container for our model loader front-end **gw_flask** and a Guacamole container for establishing the remote desktop connection **gw_guac**. As you can see in the [nginx configuration file](images/gw_proxy/nginx.conf), traffic from `http://localhost:8081/guacamole` is directed to the Guacamole server container `proxy_pass http://gw_guac:8080/guacamole/;`. Traffic from `http://localhost:8081/flask` is directed to the Flask webserver container `proxy_pass http://gw_flask/;`.
 5. **gw_flask**  
 The Flask webserver that provides a front-end where users can choose a Blender scene and view it in the browser. Under the hood, it creates and starts Blender containers (as created in the [prerequisites](../prerequisites/guide.md)). Furthermore, it automatically creates and configures connections to those Blender containers using Guacamole's REST api. This container is based on the **gw_flask image** which is described in detail in the following section.
 
@@ -240,10 +240,10 @@ def guacamole_authenticate():
 If a valid authentication token has been obtained, a connection dictionary is populated with various settings such as no. concurrent users and VNC settings. Next, the new connection is sent to Guacamole in a POST request. Finally, a connection string is returned that gives access to the Blender scene through Guacamole.
 
 ## Running the web service
-1. Open a terminal and navigate to `{clone_dir}/advanced/source`
-2. Ensure no other service is occupying localhost:80 (e.g. the [advanced](../intermediate/exercise.md) exercise)
+1. Open a terminal and navigate to `{clone_dir}/advanced`
+2. Ensure no other service is occupying localhost:8081 (e.g. the [advanced](../intermediate/exercise.md) exercise)
 3. Run `docker-compose up`
-4. In a browser of choice, navigate to [http://localhost/flask](http://localhost/flask)
+4. In a browser of choice, navigate to [http://localhost:8081/flask](http://localhost/flask:8081)
 5. You will be presented with the portal:  
 ![portal](portal.png "Portal page")  
 6. Click one of the buttons: **Shopping cart**, **Fire extinguisher** and **Water can**
