@@ -54,7 +54,7 @@ services:
     depends_on:
       - gw_guac
     ports:
-      - 8080:80
+      - 80:80
     networks:
       - default
 
