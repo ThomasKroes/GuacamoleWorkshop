@@ -84,12 +84,12 @@ A Blender container as produced earlier in the [prerequisites](../prerequisites/
 ```
     
 ## Step 1: Starting the Guacamole web service
-1. Open a terminal and navigate to `{clone_dir}/intermediate/source`
+1. Open a terminal and navigate to `{clone_dir}/intermediate`
 2. Ensure no other service is occupying localhost:80 (e.g. the [advanced](../advanced/exercise.md) exercise)
 3. Run `docker-compose up`  
 
 ## Step 2: Configure Guacamole
-1. In a browser of choice, navigate to [http://localhost:8080](http://localhost:8080)
+1. In a browser of choice, navigate to [http://localhost](http://localhost)
 2. You will be presented with a login page:  
 ![login](login.png "Login page")  
 3. Enter the following credentials: *guacadmin/guacadmin*
@@ -121,4 +121,4 @@ The host parameter is set to the service name (blender) in the [Docker Compose](
 ![blender](blender.png "blender")  
 You can click **Ctrl + Alt + Shift** at any time to open the **settings** sidebar
 
-**Note: If the service is exposed to the outside world, the URL in the address bar can be shared with others to enable collaboration (multiple users share control over the remote desktop)**  
+**Note: If the service is exposed to the outside, the URL in the address bar can be shared with others to enable collaboration (multiple users share control over the remote desktop)**  
