@@ -6,7 +6,7 @@ The goal of this exercise is to make Blender available in the browser using Guac
 Please make sure you have all the necessary [prerequisites](../prerequisites/guide.md) before going any further.
 
 ## Web service anatomy
-The [Docker Compose](https://docs.docker.com/compose/) file located [here](source/docker-compose.yml) defines the required services and how they are linked:
+The [Docker Compose](https://docs.docker.com/compose/) file located [here](docker-compose.yml) defines the required services and how they are linked:
 
 ```yml
 version: '2'
@@ -91,18 +91,18 @@ A Blender container as produced earlier in the [prerequisites](../prerequisites/
 ## Step 2: Configure Guacamole
 1. In a browser of choice, navigate to [http://localhost](http://localhost)
 2. You will be presented with a login page:  
-![login](images/login.png "Login page")  
+![login](login.png "Login page")  
 3. Enter the following credentials: *guacadmin/guacadmin*
 4. The **home** page appears:
-![home](images/home.png "Home page")
+![home](home.png "Home page")
 5. Click the **guacadmin** button at the top right and choose **settings**
 6. The **settings** page appears:  
-![settings](images/settings.png "Settings page")  
+![settings](settings.png "Settings page")  
 7. Go to the **connections** tab:  
-![connections](images/connections.png "Connections tab")
+![connections](connections.png "Connections tab")
 8. And click **new connection**
 9. The **edit connection** page appears  
-![connection](images/connection.png "Connection page")
+![connection](connection.png "Connection page")
 10. Fill out this form with the settings above  
 The host parameter is set to the service name (blender) in the [Docker Compose](https://docs.docker.com/compose/) file:
     ```yml
@@ -116,9 +116,9 @@ The host parameter is set to the service name (blender) in the [Docker Compose](
     ```
 11. Click **save** at the bottom of the form
 12. Click the **guacadmin** button at the top right and choose **Blender** to connect:
-![launch](images/launch.png "Launch")
+![launch](launch.png "Launch")
 12. If the connection is successfully established you should see the Blender GUI with a mesh models of a shopping cart:
-![blender](images/blender.png "blender")  
+![blender](blender.png "blender")  
 You can click **Ctrl + Alt + Shift** at any time to open the **settings** sidebar
 
 **Note: The URL in the address bar can be shared with others to enable collaboration (multiple users share control over the remote desktop)**  
