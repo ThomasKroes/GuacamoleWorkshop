@@ -9,7 +9,7 @@ The goal of this exercise is to build a more advanced web service by using Guaca
 **Note: This exercise will also be run locally on your system using Docker containers. Exposing the service to the outside world is beyond the scope of this exercise (support for this can be provided off-line).**
 
 # Web service anatomy
-The [Docker Compose](https://docs.docker.com/compose/) file located [here](source/docker-compose.yml) defines the required services and how they are linked:
+The [Docker Compose](https://docs.docker.com/compose/) file located [here](docker-compose.yml) defines the required services and how they are linked:
 
 ```yml
 version: '2'
@@ -245,9 +245,9 @@ If a valid authentication token has been obtained, a connection dictionary is po
 3. Run `docker-compose up`
 4. In a browser of choice, navigate to [http://localhost/flask](http://localhost/flask)
 5. You will be presented with the portal:  
-![portal](images/portal.png "Portal page")  
+![portal](portal.png "Portal page")  
 6. Click one of the buttons: **Shopping cart**, **Fire extinguisher** and **Water can**
 7. A connection with the Blender container will be established and you can interact with the scene:  
-![example](images/example.png "Example")
+![example](example.png "Example")
 
 **Note: In it's current state the webservice does not automatically close unused Blender containers, you are advised to manually remove them at the end of the workshop!**
