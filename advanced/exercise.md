@@ -6,7 +6,7 @@ The goal of this exercise is to build a more advanced web service by using Guaca
 * Communicates with Guacamole through REST to manage connections
 * Provides a portal for viewing a Blender scene
 
-**Note: This exercise will also be run locally on your system using Docker containers. Exposing the service to the outside world is beyond the scope of this exercise (support for this can be provided off-line).**
+**Note: This exercise will also be run locally on your system using Docker containers. Exposing the service to the outside is beyond the scope of this exercise (support for this can be provided off-line).**
 
 # Web service anatomy
 The [Docker Compose](https://docs.docker.com/compose/) file located [here](docker-compose.yml) defines the required services and how they are linked:
@@ -52,7 +52,7 @@ services:
     networks:
       - default
     ports:
-      - :8081:80
+      - 80:80
 
   gw_flask:
     build: images/gw_flask
@@ -74,14 +74,14 @@ The Database container with Guacamole schema as produced earlier in the [prerequ
 3. **gw_guac**  
 The Guacamole server container. It connects to the Guacamole daemon container **gw_guacd** and the Database container **gw_guacdb**
 4. **gw_proxy**  
-An NGINX reverse proxy for routing traffic to the appropriate container. In this web service we have a container for our model loader front-end **gw_flask** and a Guacamole container for establishing the remote desktop connection **gw_guac**. As you can see in the [nginx configuration file](images/gw_proxy/nginx.conf), traffic from `http://localhost:8081/guacamole` is directed to the Guacamole server container `proxy_pass http://gw_guac:8080/guacamole/;`. Traffic from `http://localhost:8081/flask` is directed to the Flask webserver container `proxy_pass http://gw_flask/;`.
+An NGINX reverse proxy for routing traffic to the appropriate container. In this web service we have a container for our model loader front-end **gw_flask** and a Guacamole container for establishing the remote desktop connection **gw_guac**. As you can see in the [nginx configuration file](images/gw_proxy/nginx.conf), traffic from `http://localhost/guacamole` is directed to the Guacamole server container `proxy_pass http://gw_guac:8080/guacamole/;`. Traffic from `http://localhost/flask` is directed to the Flask webserver container `proxy_pass http://gw_flask/;`.
 5. **gw_flask**  
 The Flask webserver that provides a front-end where users can choose a Blender scene and view it in the browser. Under the hood, it creates and starts Blender containers (as created in the [prerequisites](../prerequisites/guide.md)). Furthermore, it automatically creates and configures connections to those Blender containers using Guacamole's REST api. This container is based on the **gw_flask image** which is described in detail in the following section.
 
 ## Anatomy of the Flask web server
 The source code for the Flask application that runs in **gw_flask** is located in [app.py](source/images/gw_flask/app.py).
 
-The Flask server provides a home view located at *http://localhost:8081/flask*:
+The Flask server provides a home view located at *http://localhost/flask*:
 ```python
 # Front end
 @app.route("/")
@@ -241,9 +241,9 @@ If a valid authentication token has been obtained, a connection dictionary is po
 
 ## Running the web service
 1. Open a terminal and navigate to `{clone_dir}/advanced`
-2. Ensure no other service is occupying localhost:8081 (e.g. the [advanced](../intermediate/exercise.md) exercise)
+2. Ensure no other service is occupying localhost:80 (e.g. the [advanced](../intermediate/exercise.md) exercise)
 3. Run `docker-compose up`
-4. In a browser of choice, navigate to [http://localhost:8081/flask](http://localhost/flask:8081)
+4. In a browser of choice, navigate to [http://localhost/flask](http://localhost/flask)
 5. You will be presented with the portal:  
 ![portal](portal.png "Portal page")  
 6. Click one of the buttons: **Shopping cart**, **Fire extinguisher** and **Water can**
